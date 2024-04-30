@@ -31,6 +31,11 @@ class Product extends Database {
         $stmt->execute([$productId]);
         return $stmt->fetch();
     }
+    public function deleteProduct($productID) {
+        $pdo = $this->connect();
 
+        $stmt = $pdo->prepare("DELETE FROM produits WHERE productID = ?");
+        $stmt->execute([$productID]);
+    }
  
 }

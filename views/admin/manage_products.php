@@ -26,8 +26,8 @@
                 <td><?php echo $product['prix']; ?></td>
                 <td><?php echo $product['quantite_en_stock']; ?></td>
                 <td>
-                    <a href="#">Edit</a> | 
-                    <a href="#">Delete</a>
+                    <a href="views/admin/edit_product.php">Edit</a> | 
+                    <a href="../../index.php?controller=AdminController&method=deleteProduct&productId=<?php echo $cartItem['productID']; ?>">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

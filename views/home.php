@@ -38,7 +38,7 @@
                 echo "<div class='image_product'>";
                 echo "<img src='{$product['image']}' alt='Product Image'>";
                 echo "</div>";
-                echo "<form action='../index.php?controller=CartController&method=addToCart&productId=". $product['productID'] . "' method='post'>";
+                echo "<form action='index.php?controller=CartController&method=addToCart&productId=". $product['productID'] . "' method='post'>";
                 echo "<input type='hidden' name='product_id' value='{$product['productID']}'>";
                 echo "<input type='submit' name='add_to_cart' value='Add to Cart'>";
                 echo "</form>";
@@ -55,6 +55,7 @@
         <p>
             <a href="views/login.php">Se connecter</a> |
             <a href="views/register.php">S'inscrire</a>
+            <a href="views/cart.php">S'inscrire</a>
         </p>
     </div>
 </body>

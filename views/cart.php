@@ -17,14 +17,16 @@
                 <tr>
                     <th>Product</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                     <th>Action</th>
                 </tr>
                 <?php foreach ($cartItems as $cartItem): ?>
                     <tr>
                         <td><?php echo $cartItem['name']; ?></td>
                         <td><?php echo $cartItem['price']; ?></td>
+                        <td><?php echo $cartItem['quantite']; ?></td>
                         <td>
-                            <a href="../index.php?controller=CartController&method=removeFromCart&productId=<?php echo $cartItem['id']; ?>">Remove</a>
+                            <a href="../index.php?controller=CartController&method=removeFromCart&productId=<?php echo $cartItem['productID']; ?>">Remove</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -34,3 +36,4 @@
     <a href="../index.php?controller=HomeController&method=index">Continue Shopping</a>
 </body>
 </html>
+

@@ -34,7 +34,7 @@ class AuthController {
         }
 
         // Load the login view
-        require_once 'Views/login.php';
+        require_once 'views/login.php';
     }
 
     public function register() {
@@ -60,6 +60,20 @@ class AuthController {
 
         // Load the register view
         require_once 'Views/register.php';
+    }
+        
+    public function logout() {
+        session_start();
+        
+        // Unset all of the session variables
+        $_SESSION = array();
+        
+        // Destroy the session.
+        session_destroy();
+        
+        // Redirect to home page or wherever you want after logout
+        header('Location: ../index.php');
+        exit;
     }
 }
 

@@ -1,5 +1,5 @@
 <?php
-require_once 'models/Product.php';
+require_once 'classes/Product.php';
 class AdminController {
     public function manageUsers() {
         // Load users from the database

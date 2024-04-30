@@ -1,4 +1,9 @@
 <?php
+require_once 'classes/Product.php'; // Include Product class file
+require_once 'classes/Database.php'; // Include Product class file
+require_once 'classes/User.php'; // Include Product class file
+require_once 'classes/Cart.php'; // Include Product class file
+
 class CartController {
     public function viewCart() {
         if (session_status() === PHP_SESSION_NONE) {
@@ -6,37 +11,35 @@ class CartController {
         }
     
         $userID = $_SESSION['userID'];
-    
+        $cart = new Cart();
         // Get cart items from the database
-        $cartItems = Cart::getCartItem($userID);
+        $cartItems = $cart->getCartItem($userID);
     
         require_once 'Views/cart.php';
     }
     
-
-    public function addToCart($productId) {
-    // Start session if not already started
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-
-    // Check if product_id is set
-    if (isset($_POST['product_id'])) {
-        $productId = $_POST['product_id'];
-
-        // Check if cart array exists in session
-        if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = array();
+    public function addToCart() {
+        // Start session if not already started
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
         }
-
-        // Add product to cart
-        $_SESSION['cart'][] = $productId;
+    
+        // Check if product_id is set
+        if (isset($_POST['product_id'])) {
+            $productId = $_POST['product_id'];
+            $userID = $_SESSION['userID']; // Assuming you have the user ID in session
+    
+            // Add the product to the cart table in the database
+            $cart = new Cart();
+            $cart->addToCart($userID, $productId);
+        }
+    
+        // Redirect back to the home page after adding to cart
+        header("Location: index.php?controller=HomeController&method=index");
+        exit;
     }
-
-    // Redirect back to the home page after adding to cart
-    header("Location: index.php?controller=HomeController&method=index");
-    exit;
-}
+    
+    
 
     public function removeFromCart($productId) {
               // Start session if not already started

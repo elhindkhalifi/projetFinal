@@ -12,7 +12,7 @@
     <?php if (isset($error)): ?>
         <p><?php echo $error; ?></p>
     <?php endif; ?>
-    <form action="index.php?controller=AuthController&method=login" method="POST">
+    <form action="../index.php?controller=AuthController&method=login" method="POST">
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>

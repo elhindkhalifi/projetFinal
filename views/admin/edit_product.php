@@ -9,15 +9,15 @@
 </head>
 <body>
     <h2>Edit Product</h2>
-    <form action="index.php?controller=AdminController&method=editProduct" method="POST">
+    <form action="../../index.php?controller=AdminController&method=editProduct&productId=<?php echo $productId;?>" method="POST">
         <input type="hidden" name="productId" value="<?php echo $productId; ?>">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="<?php echo $product['nom']; ?>" required>
+            <input type="text" id="name" name="name" value="" required>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea id="description" name="description" required><?php echo $product['description']; ?></textarea>
+            <textarea id="description" name="description" required></textarea>
         </div>
         <div class="form-group">
             <label for="price">Price:</label>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" value="<?php echo $product['quantite_en_stock']; ?>" min="0" required>
+            <input type="number" id="quantity" name="quantity" value="<?php echo $product['quantite']; ?>" min="0" required>
         </div>
         <button type="submit">Update Product</button>
     </form>

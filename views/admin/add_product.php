@@ -9,7 +9,7 @@
 </head>
 <body>
     <h2>Add Product</h2>
-    <form action="index.php?controller=AdminController&method=addProduct" method="POST">
+    <form action="../../index.php?controller=AdminController&method=addProduct" method="POST">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
